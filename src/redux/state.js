@@ -1,16 +1,13 @@
+import { dialogsReducer } from "./reducers/dialogsReducer";
+import { profileReducer } from "./reducers/profileReducer";
+import { sidebarReducer } from "./reducers/sidebarReducer";
+
 export const actions = {
   ADD_POST: "ADD_POST",
   UPDATE_NEW_POST_TEXT: "UPDATE_NEW_POST_TEXT",
+  UPDATE_NEW_MESSAGE_BODY: "UPDATE_NEW_MESSAGE_BODY",
+  SEND_MESSAGE: "SEND_MESSAGE",
 };
-
-export const addPostActionCreator = () => ({
-  type: actions["ADD_POST"],
-});
-
-export const updateNewPostTextActionCreator = (payload) => ({
-  type: actions["UPDATE_NEW_POST_TEXT"],
-  payload,
-});
 
 const store = {
   _state: {
@@ -39,6 +36,7 @@ const store = {
         { id: 4, message: "Yo" },
         { id: 5, message: "Yo" },
       ],
+      newMessageBody: "",
     },
     sidebar: {},
   },
@@ -54,19 +52,11 @@ const store = {
   },
 
   dispatch(action) {
-    if (action.type === actions["ADD_POST"]) {
-      let newPost = {
-        id: 5,
-        message: this._state.profilePage.newPostText,
-        likesCount: 0,
-      };
-      this._state.profilePage.posts.push(newPost);
-      this._state.profilePage.newPostText = "";
-      this._callSubscriber(this._state);
-    } else if (action.type === actions["UPDATE_NEW_POST_TEXT"]) {
-      this._state.profilePage.newPostText = action.payload;
-      this._callSubscriber(this._state);
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.profilePage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+
+    this._callSubscriber(this._state);
   },
 };
 
