@@ -27,7 +27,6 @@ export const dialogsReducer = (state = initialState, action) => {
       return state;
     case actions["SEND_MESSAGE"]:
       const message = state.newMessageBody;
-      debugger;
       state.newMessageBody = "";
       state.messages.push({ message, id: 6 });
       return state;

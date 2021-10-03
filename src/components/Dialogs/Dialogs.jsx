@@ -4,8 +4,7 @@ import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 
 export const Dialogs = (props) => {
-  const { dialogsPage } = props;
-
+  const { onSendMessage, onMessageChange, dialogsPage } = props;
   const dialogsElements = dialogsPage.dialogs.map((d, key) => (
     <DialogItem name={d.name} id={d.id} key={key} />
   ));
@@ -15,12 +14,12 @@ export const Dialogs = (props) => {
 
   const { newMessageBody } = props.dialogsPage;
 
-  const onSendMessage = () => {
-    props.sendMessage();
+  const onSend = () => {
+    onSendMessage();
   };
 
   const onNewMessageChange = (e) => {
-    props.onMessageChange();
+    onMessageChange(e.target.value);
   };
 
   return (
@@ -36,7 +35,7 @@ export const Dialogs = (props) => {
           />
         </div>
         <div>
-          <button onClick={onSendMessage}>Ok</button>
+          <button onClick={onSend}>Ok</button>
         </div>
       </div>
     </div>
