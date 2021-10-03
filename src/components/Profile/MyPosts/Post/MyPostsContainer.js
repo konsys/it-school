@@ -3,9 +3,9 @@ import {
   addPostActionCreator,
   updateNewPostTextActionCreator,
 } from "../../../../redux/reducers/profileReducer";
-import MyPosts from "../MyPosts";
+import { MyPosts } from "../MyPosts";
 
-const MyPostsContainer = (props) => {
+export const MyPostsContainer = (props) => {
   const { store } = props;
   const addPost = () => {
     store.dispatch(addPostActionCreator());
@@ -24,5 +24,3 @@ const MyPostsContainer = (props) => {
     />
   );
 };
-
-export default MyPostsContainer;

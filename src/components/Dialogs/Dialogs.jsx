@@ -2,12 +2,8 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {
-  sendMessageActionCreator,
-  updateNewMessageBodyActionCreator,
-} from "../../redux/reducers/dialogsReducer";
 
-const Dialogs = (props) => {
+export const Dialogs = (props) => {
   const { dialogsPage } = props;
 
   const dialogsElements = dialogsPage.dialogs.map((d, key) => (
@@ -20,11 +16,11 @@ const Dialogs = (props) => {
   const { newMessageBody } = props.dialogsPage;
 
   const onSendMessage = () => {
-    props.dispatch(sendMessageActionCreator());
+    props.sendMessage();
   };
 
   const onNewMessageChange = (e) => {
-    props.dispatch(updateNewMessageBodyActionCreator(e.target.value));
+    props.onMessageChange();
   };
 
   return (
@@ -46,5 +42,3 @@ const Dialogs = (props) => {
     </div>
   );
 };
-
-export default Dialogs;

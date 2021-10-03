@@ -1,8 +1,8 @@
 import React from "react";
-import MyPostsContainer from "./MyPosts/Post/MyPostsContainer";
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import { MyPostsContainer } from "./MyPosts/Post/MyPostsContainer";
+import { ProfileInfo } from "./ProfileInfo/ProfileInfo";
 
-const Profile = (props) => {
+export const Profile = (props) => {
   return (
     <div>
       <ProfileInfo />
@@ -10,5 +10,3 @@ const Profile = (props) => {
     </div>
   );
 };
-
-export default Profile;
