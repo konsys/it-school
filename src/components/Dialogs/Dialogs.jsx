@@ -19,7 +19,7 @@ const Dialogs = (props) => {
 
   const { newMessageBody } = props.dialogsPage;
 
-  const onSendMessage = (e) => {
+  const onSendMessage = () => {
     props.dispatch(sendMessageActionCreator());
   };
 
@@ -37,7 +37,7 @@ const Dialogs = (props) => {
             placeholder="Enter message"
             value={newMessageBody}
             onChange={onNewMessageChange}
-          ></textarea>
+          />
         </div>
         <div>
           <button onClick={onSendMessage}>Ok</button>
