@@ -9,7 +9,7 @@ export const actions = {
   SEND_MESSAGE: "SEND_MESSAGE",
 };
 
-const store = {
+export const store1 = {
   _state: {
     profilePage: {
       posts: [
@@ -60,5 +60,4 @@ const store = {
   },
 };
 
-export default store;
-window.store = store;
+//
