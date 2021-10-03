@@ -1,4 +1,4 @@
-import { actions } from "../state";
+import { actions } from "../store";
 
 export const dialogsReducer = (state, action) => {
   switch (action.type) {
