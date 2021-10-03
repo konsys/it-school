@@ -10,11 +10,11 @@ import {
 const Dialogs = (props) => {
   const dialogsPage = props.store.getState().dialogsPage;
 
-  const dialogsElements = dialogsPage.dialogs.map((d) => (
-    <DialogItem name={d.name} id={d.id} />
+  const dialogsElements = dialogsPage.dialogs.map((d, key) => (
+    <DialogItem name={d.name} id={d.id} key={key} />
   ));
-  const messagesElements = dialogsPage.messages.map((m) => (
-    <Message message={m.message} />
+  const messagesElements = dialogsPage.messages.map((m, key) => (
+    <Message message={m.message} key={key} />
   ));
 
   const { newMessageBody } = props.store.getState().dialogsPage;
