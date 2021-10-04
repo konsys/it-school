@@ -22,14 +22,14 @@ const initialState = {
 export const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case actions["UPDATE_NEW_MESSAGE_BODY"]:
-      state.newMessageBody = action.payload;
-
-      return state;
+      return { ...state, newMessageBody: action.payload };
     case actions["SEND_MESSAGE"]:
       const message = state.newMessageBody;
-      state.newMessageBody = "";
-      state.messages.push({ message, id: 6 });
-      return state;
+      return {
+        ...state,
+        newMessageBody: "",
+        messages: [...state.messages, { message, id: 6 }],
+      };
     default:
       return state;
   }
