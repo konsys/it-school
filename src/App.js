@@ -5,7 +5,6 @@ import { Navbar } from "./components/Navbar/Navbar";
 import { Profile } from "./components/Profile/Profile";
 import { DialogsContainer } from "./components/Dialogs/DialogsContainer";
 import { Route } from "react-router-dom";
-import store from "./redux/redux-store";
 
 export const App = () => {
   return (
@@ -13,12 +12,9 @@ export const App = () => {
       <Header />
       <Navbar />
       <div className="app-wrapper-content">
-        <Route
-          path="/dialogs"
-          render={() => <DialogsContainer store={store} />}
-        />
+        <Route path="/dialogs" render={() => <DialogsContainer />} />
 
-        <Route path="/profile" render={() => <Profile store={store} />} />
+        <Route path="/profile" render={() => <Profile />} />
       </div>
     </div>
   );

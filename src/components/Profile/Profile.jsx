@@ -2,11 +2,11 @@ import React from "react";
 import { MyPostsContainer } from "./MyPosts/Post/MyPostsContainer";
 import { ProfileInfo } from "./ProfileInfo/ProfileInfo";
 
-export const Profile = (props) => {
+export const Profile = () => {
   return (
     <div>
       <ProfileInfo />
-      <MyPostsContainer store={props.store} />
+      <MyPostsContainer />
     </div>
   );
 };

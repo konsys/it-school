@@ -35,7 +35,7 @@ export const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-export const updateNewMessageBodyActionCreator = (payload) => ({
+export const dialogTextChangeActionCreator = (payload) => ({
   type: actions["UPDATE_NEW_MESSAGE_BODY"],
   payload,
 });
