@@ -17,7 +17,6 @@ export const MyPosts = (props) => {
   const onUpdatePost = () => {
     props.updateNewPostText(newPostElement.current.value);
   };
-  debugger;
   return (
     <div className={s.postsBlock}>
       <h3>My posts</h3>

@@ -2,15 +2,6 @@ import { dialogsReducer } from "./reducers/dialogsReducer";
 import { profileReducer } from "./reducers/profileReducer";
 import { sidebarReducer } from "./reducers/sidebarReducer";
 
-export const actions = {
-  ADD_POST: "ADD_POST",
-  UPDATE_NEW_POST_TEXT: "UPDATE_NEW_POST_TEXT",
-  UPDATE_NEW_MESSAGE_BODY: "UPDATE_NEW_MESSAGE_BODY",
-  SEND_MESSAGE: "SEND_MESSAGE",
-  ALL_USERS: "ALL_USERS",
-  ONE_USER: "ONE_USER",
-};
-
 export const store1 = {
   _state: {
     profilePage: {

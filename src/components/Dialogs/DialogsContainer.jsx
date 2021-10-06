@@ -6,7 +6,6 @@ import {
 import { Dialogs } from "./Dialogs";
 
 const mapStateToProps = (state) => {
-  // debugger;
   return {
     dialogsPage: state.dialogsPage,
   };
