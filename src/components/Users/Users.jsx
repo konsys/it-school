@@ -1,18 +1,25 @@
 import s from "./users.module.css";
 import { useEffect } from "react";
-import { initialUsers } from "../../redux/reducers/usersReducers";
+import axios from "axios";
 
 export const Users = (props) => {
   const { users, follow, unfollow } = props;
 
+  const getUsers = () => {
+    // if (!users.length) {
+    axios
+      .get("http://localhost:8000/users")
+      .then((res) => props.setUsers(res.data.items));
+    // }
+  };
+
   useEffect(() => {
-    if (!users.length) {
-      props.setUsers(initialUsers);
-    }
-  }, [props, users.length]);
+    getUsers();
+  }, []);
 
   return (
     <div>
+      <button children="getUsers" onClick={getUsers} />
       {users.map((u) => (
         <div key={u.id}>
           <div>
